@@ -12,25 +12,29 @@ public:
         x = X;
         y = Y;
     }
-    Wektor2D(Wektor2D w1, Wektor2D w2)
-    {
-        x = w1.getX() + w2.getX();
-        y = w1.getY() + w2.getY();
-    }
-    double dotp(Wektor2D w1, Wektor2D w2) { 
-        return w1.getX() * w2.getX() + w1.getY() * w2.getY(); 
-    }
-
     double x;
     double y;
 };
 
+Wektor2D suma(Wektor2D w1, Wektor2D w2)
+{
+    Wektor2D w3;
+    w3.x = w1.getX() + w2.getX();
+    w3.y = w1.getY() + w2.getY();
+    return w3;
+}
+
+double dotp(Wektor2D w1, Wektor2D w2)
+{
+    return w1.getX() * w2.getX() + w1.getY() * w2.getY();
+}
+
 Wektor2D operator+(Wektor2D w1, Wektor2D w2)
 {
-    return Wektor2D{w1, w2};
+    return suma(w1, w2);
 }
 
 double operator*(Wektor2D w1, Wektor2D w2)
 {
-    return w1.dotp(w1, w2);
+    return dotp(w1, w2);
 }
