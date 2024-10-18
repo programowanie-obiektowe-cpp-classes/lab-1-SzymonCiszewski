@@ -6,7 +6,11 @@ public:
     void   setY(double Y) { y = Y; }
     double getX() { return x; }
     double getY() { return y; }
-    Wektor2D() {}
+    Wektor2D()
+    {
+        x = 0;
+        y = 0;
+    }
     Wektor2D(double X, double Y)
     {
         x = X;
